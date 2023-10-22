@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { ApiService } from './services/api-service/api.service';
 
 @Component({
@@ -7,10 +7,11 @@ import { ApiService } from './services/api-service/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ifElseCloudDashBoard';
+  title = "asd";
   ser=inject(ApiService);
 
-  public constructor() {
+
+ public constructor() {
     this.ser.getGridData().subscribe(val=>console.log(val))
   }
 }
