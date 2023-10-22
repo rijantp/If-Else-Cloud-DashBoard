@@ -1,0 +1,14 @@
+.container{
+display: flex;
+height: 95vh;
+}
+
+.side-nav{
+  background-color: rgb(225, 213, 213);
+  flex: 0 0 5%;
+}
+
+.content{
+  flex: 1;
+  background-color: aquamarine;
+}
