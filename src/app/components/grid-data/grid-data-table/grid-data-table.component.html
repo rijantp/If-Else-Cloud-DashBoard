@@ -1,0 +1,62 @@
+<table *ngIf="(gridData$ | async) as gridData" >
+    <tr class="table-header-row">
+      <td>
+        <div class="table-cell-align">
+<input type="checkbox">
+<span class="header-name-title ">{{gridData.grid_columns[0].column_name}}</span>
+</div>
+      </td>
+      <td>
+        <div class="table-cell-align">
+        <span>{{gridData.grid_columns[1].column_name}}</span>
+        <fa-icon icon="arrow-down"></fa-icon>
+    </div>
+      </td>
+      <td>
+        <div class="table-cell-align">
+        <span>{{gridData.grid_columns[2].column_name}}</span>
+        <fa-icon icon="circle-question"></fa-icon>
+        </div>
+      </td>
+      <td>
+        <span class="license-header">{{gridData.grid_columns[3].column_name}}</span>
+      </td>
+      <td>
+        <span class="table-cell-align m-l-20">{{gridData.grid_columns[4].column_name}}</span>
+      </td>
+      <td></td>
+    </tr>
+    <tr *ngFor="let userData of gridData.grid_data">
+        <td>
+            <div class="user">
+                <input type="checkbox">
+                <div class="user-image">
+                    {{userData.name | namePreview}}
+                </div>
+                <div class="user-name">
+                    <span class="user-name__title"> {{userData.name | userName}}</span>
+                    <span class="user-name__id">{{userData.name.handle}}</span>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div  [ngClass]="userData.status === 'Customer' ? 'status-active' : 'status-disabled'" class="status">
+                <div class="status-dot"></div>
+                <span class="status-title">{{userData.status}}</span>
+            </div>
+        </td>
+        <td><span class="table-cell-align" >{{userData.role}}</span></td>
+        <td><app-percent-indicator [value]="userData.license_used"></app-percent-indicator></td>
+        <td>
+            <div class="chip-container">
+            <app-chip *ngFor="let team of userData.teams" [text]="team.value" [backGroundColor]="team.background_color" [textColor]="team.text_color"></app-chip> 
+            </div>
+        </td>
+        <td>
+            <div class="edit-container">
+                <fa-icon icon="trash-can"></fa-icon>
+                <fa-icon icon="pen"></fa-icon>
+            </div>
+        </td>
+      </tr>
+  </table>

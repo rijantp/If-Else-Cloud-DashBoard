@@ -1,0 +1,122 @@
+@import 'src/mixin.scss';
+
+table, td, th {
+    border: none
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  th {
+    text-align: left;
+  }
+
+  .user{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    &-image{
+        font-size: var(--font-size-medium);
+        padding: 2px;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        background-color: var(--color-gray-light-2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-gray-light-1);
+    }
+
+    &-name{
+        display: flex;
+        flex-direction: column;
+
+        &__title{
+            color: var(--color-gray-dark);
+            font-size: var(--font-size-small);
+        }
+
+        &__id{
+                color: var(--color-gray-light-1);
+                font-size: var(--font-size-small);
+        }
+           
+        
+    }
+  }
+
+  .status{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 5px;
+    font-size: var(--font-size-small);
+    padding: 5px 5px;
+    border-radius: 10px;
+
+    &-active{
+      color: var(--color-green-dark);
+      background-color: var(--color-green-light);
+      border: 1px solid var(--color-green-dark);
+    }
+
+    &-disabled{
+      color: var(--color-gray-dark);
+      background-color: var(--color-gray-light-2);
+      border: 1px solid var(--color-gray-dark);
+    }
+    
+    &-dot{
+        height: 5px;
+        width: 5px;
+        background-color: var(--color-green-dark);
+        border-radius: 50%;
+    }
+    
+  }
+
+  .chip-container{
+    display: flex;
+    gap: 5px;
+    justify-content: flex-start;
+    margin-left: 20px;
+  }
+
+  
+.edit-container{
+    display: flex;
+    gap: 20px;
+    color: var(--color-gray-dark)
+  }
+
+.table-cell-align{
+    @include table-cell-flex-centre;
+    @include table-cell-font;
+}
+
+.license-header{
+    font-size: var(--font-size-medium);
+    color:var(--color-gray-light-1);
+}
+
+.table-header-row{
+    background-color: var(--color-gray-light-2);
+}
+
+input[type="checkbox"]{
+    cursor: pointer;
+}
+
+.m-l-20{
+  margin-left: 20px;
+}

@@ -7,11 +7,11 @@ import { ChartConfiguration } from 'chart.js';
   styleUrls: ['./doughnut-chart.component.scss']
 })
 export class DoughnutChartComponent {
-  public doughnutChartLabels: string[] = [ 'Download Sales', 'In-Store Sales', 'Mail-Order Sales' ];
+  public doughnutChartLabels: string[] = [ '240' ];
   public doughnutChartDatasets: ChartConfiguration<'doughnut'>['data']['datasets'] = [
-      { data: [ 350, 450, 100 ], label: 'Series A' },
-      { data: [ 50, 150, 120 ], label: 'Series B' },
-      { data: [ 250, 130, 70 ], label: 'Series C' }
+      { data: [ 350, 450, 0 ], label: 'Series A' },
+      // { data: [ 50, 150, 120 ], label: 'Series B' },
+      // { data: [ 250, 130, 70 ], label: 'Series C' }
     ];
 
   public doughnutChartOptions: ChartConfiguration<'doughnut'>['options'] = {

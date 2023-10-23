@@ -1,0 +1,17 @@
+@mixin flex-centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@mixin table-cell-flex-centre{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+@mixin table-cell-font{
+    font-size: var(--font-size-small);
+    color:var(--color-gray-light-1);
+}

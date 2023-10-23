@@ -4,21 +4,22 @@
             <span class="header-sub">You're using 80% available spots.</span>
         
     </div>
+    <div class="content">
     <canvas baseChart
         [labels]="doughnutChartLabels"
         [datasets]="doughnutChartDatasets"
         [options]="doughnutChartOptions"
         [legend]="true"
         [type]="'doughnut'"
-        height="150px"
-        class="content">
+        height="150px">
 </canvas>
+</div>
 <div class="footer">
     <app-detailed-button>
-        <!-- <div class="footer-btn"> -->
+     
             <fa-icon icon="bolt"></fa-icon>
             <span>Upgrade plan</span>
-        <!-- </div> -->
+    
     </app-detailed-button>
 </div>
 </app-card>

@@ -1,0 +1,28 @@
+@import 'src/mixin.scss';
+
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.value{
+    background-color: var(--color-violet-dark);
+    height: 5px;
+    border-radius: 10px;
+}
+
+.balance{
+    background-color: var(--color-violet-light);
+    height: 5px;
+    border-radius:0 10px 10px 0 ;
+}
+
+span{
+    margin-left: 2px;
+    font-size: var(--font-size-small);
+}
+
+.span{
+@include table-cell-font
+}

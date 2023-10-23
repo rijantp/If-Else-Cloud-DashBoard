@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{ HttpClientModule} from '@angular/common/http';
 import { FontAwesomeModule,FaIconLibrary  } from '@fortawesome/angular-fontawesome';
-import { faCamera,faHouse,faSquarePollVertical, faLayerGroup, faSquareCheck, faChartPie, faUserGroup, faCircleUser, faGear, faMagnifyingGlass, faSliders, faCloudArrowDown, faBox } from '@fortawesome/free-solid-svg-icons';
+import { faCamera,faHouse,faSquarePollVertical, faLayerGroup, faSquareCheck, faChartPie, faUserGroup, faCircleUser, faGear, faMagnifyingGlass, faSliders, faCloudArrowDown, faBox, faBolt, faArrowDown, faCircleQuestion, faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
 import {  } from '@fortawesome/free-solid-svg-icons';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,13 @@ import { NgChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
 import { CardComponent } from './shared/card/card.component';
+import { GridDataComponent } from './components/grid-data/grid-data.component';
+import { UserDataComponent } from './components/grid-data/user-data/user-data.component';
+import { GridDataTableComponent } from './components/grid-data/grid-data-table/grid-data-table.component';
+import { PercentIndicatorComponent } from './shared/percent-indicator/percent-indicator.component';
+import { ChipComponent } from './shared/chip/chip.component';
+import { UserNamePipe } from './pipes/user-name.pipe';
+import { NamePreviewPipe } from './pipes/name-preview.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +29,14 @@ import { CardComponent } from './shared/card/card.component';
     DetailedButtonComponent,
     BarChartComponent,
     DoughnutChartComponent,
-    CardComponent
+    CardComponent,
+    GridDataComponent,
+    UserDataComponent,
+    GridDataTableComponent,
+    PercentIndicatorComponent,
+    ChipComponent,
+    UserNamePipe,
+    NamePreviewPipe
   ],
   imports: [
     NgChartsModule,
@@ -37,6 +51,7 @@ export class AppModule {
   public constructor(library: FaIconLibrary){
     library.addIcons(faCamera,
       faHouse,
+      faArrowDown,
       faSquarePollVertical,
       faLayerGroup,
       faSquareCheck,
@@ -47,7 +62,11 @@ export class AppModule {
       faMagnifyingGlass,
       faSliders,
       faCloudArrowDown,
-      faBox
+      faBox,
+      faBolt,
+      faCircleQuestion,
+      faTrashCan,
+      faPen
       );
   }
  }
