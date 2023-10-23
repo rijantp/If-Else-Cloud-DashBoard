@@ -1,21 +1,56 @@
 .container{
     display: flex;
-    height: 90vh;
-    padding-top: 40px;
+   align-items: flex-start;
     }
 
 .side-nav{
       flex: 0 0 5%;
+     // background-color:gray;
+      position: sticky;
+      top: 0;
+      height: 95vh;
     }
-    
+
+.c1{
+  flex: 1;
+  height: fit-content;
+}
+
 .content{
-      flex: 1;
-      background-color: aquamarine;
-      
-      span{
-        font-size: 2rem;
-      }
-    }
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
 
+.content-header{
+  display: flex;
+  justify-content: space-between;
+  //background-color: aqua;
 
+  span{
+    font-size: 2rem;
+  }
+}
     
+.content-graph-container{
+  background-color: bisque;
+  height: 500px;
+}
+
+.content-table{
+  background-color: cadetblue;
+  height: 1200px;
+}
+
+  .content-header-icons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  fa-icon{
+    color: var(--color-gray-dark);
+  }
+
+  
