@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 export class PaginationComponent {
 pageCountList:number[]=[1,2,3,4];
-selectedPage:number=1
+selectedPage:number=1;
+
+@Output() onPageSelected:EventEmitter<number>=new EventEmitter<number>;
+
+onPageClick(pageCount:number):void{
+  this.onPageSelected.emit(pageCount);
+}
 }

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./grid-data.component.scss']
 })
 export class GridDataComponent {
+selectedPage:number=1;
+usersCount:number=0;
+chipText:string='';
 
+onUsersCount(count:number):void{
+  this.usersCount=count;
+  this.chipText=`${count} users`;
+}
 }

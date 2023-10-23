@@ -1,10 +1,10 @@
 <app-card>
     <div class="header">
         <span class="header-main">Team members</span>
-        <app-chip [text]="'100 users'"></app-chip>
+        <app-chip [text]="chipText"></app-chip>
     </div>
     <div class="content">
-   <app-grid-data-table></app-grid-data-table>
+   <app-grid-data-table (usersCount)="onUsersCount($event)"></app-grid-data-table>
     </div>
-    <app-pagination class="footer"></app-pagination>
+    <app-pagination (onPageSelected)="selectedPage=$event" class="footer"></app-pagination>
 </app-card>

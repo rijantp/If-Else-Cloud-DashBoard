@@ -4,7 +4,7 @@
         Previous
     </app-detailed-button>
     <div class="count" >
-<span *ngFor="let pageNum of pageCountList" [class.selected] = "selectedPage === pageNum">{{pageNum}}</span>
+<span (click)="onPageClick(pageNum)" *ngFor="let pageNum of pageCountList" [class.selected] = "selectedPage === pageNum">{{pageNum}}</span>
     </div>
     <app-detailed-button>
         next
