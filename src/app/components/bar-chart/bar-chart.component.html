@@ -1,0 +1,22 @@
+<app-card>
+    <div class="header">
+        <fa-icon icon="box"></fa-icon>
+        <div class="header-title" >
+            <span class="header-title-main">Vendor breakdown</span>
+            <span class="header-title-sub">Keep track of vendors and their security ratings.</span>
+        </div>
+    </div>
+    <canvas
+     baseChart
+     height="150px"
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'"
+        class="content">
+</canvas>
+<div class="footer">
+    <app-detailed-button>View full report</app-detailed-button>
+</div>
+</app-card>

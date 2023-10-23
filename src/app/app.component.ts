@@ -10,7 +10,6 @@ export class AppComponent {
   title = "asd";
   ser=inject(ApiService);
 
-
  public constructor() {
     this.ser.getGridData().subscribe(val=>console.log(val))
   }

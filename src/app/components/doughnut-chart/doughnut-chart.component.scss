@@ -1,0 +1,21 @@
+.header{
+    display: flex;
+    flex-direction: column;
+
+    &-main{
+        font-size: var(--font-size-medium);
+    }
+
+    &-sub{
+        font-size: var(--font-size-small);
+    }
+}
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+// canvas{
+//    width: 25vw ;
+// }

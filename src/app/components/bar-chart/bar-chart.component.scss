@@ -1,0 +1,34 @@
+.header{
+display: flex;
+
+&-title{
+    display: flex;
+    flex-direction: column;
+
+    &-main{
+        font-size: var(--font-size-medium);
+    }
+
+    &-sub{
+        font-size: var(--font-size-small);
+    }
+    }
+}
+
+.content{
+    font-size: var(--font-size-small);
+    color: rgba(150, 56, 212, 0.3)
+}
+
+
+.footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+// canvas{
+//     // width: 60vw;
+//     width: 200%;
+//     background-color: red;
+// }

@@ -25,16 +25,20 @@
 .content-header{
   display: flex;
   justify-content: space-between;
-  //background-color: aqua;
 
   span{
-    font-size: 2rem;
+    font-size: --var(--font-size-large);
   }
 }
     
 .content-graph-container{
   background-color: bisque;
-  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+
+
 }
 
 .content-table{

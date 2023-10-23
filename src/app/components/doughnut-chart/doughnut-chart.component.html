@@ -1,0 +1,24 @@
+<app-card>
+    <div class="header">
+            <span class="header-main">Vendors monitored</span>
+            <span class="header-sub">You're using 80% available spots.</span>
+        
+    </div>
+    <canvas baseChart
+        [labels]="doughnutChartLabels"
+        [datasets]="doughnutChartDatasets"
+        [options]="doughnutChartOptions"
+        [legend]="true"
+        [type]="'doughnut'"
+        height="150px"
+        class="content">
+</canvas>
+<div class="footer">
+    <app-detailed-button>
+        <!-- <div class="footer-btn"> -->
+            <fa-icon icon="bolt"></fa-icon>
+            <span>Upgrade plan</span>
+        <!-- </div> -->
+    </app-detailed-button>
+</div>
+</app-card>
