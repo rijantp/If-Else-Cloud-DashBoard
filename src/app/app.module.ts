@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{ HttpClientModule} from '@angular/common/http';
 import { FontAwesomeModule,FaIconLibrary  } from '@fortawesome/angular-fontawesome';
-import { faCamera,faHouse,faSquarePollVertical, faLayerGroup, faSquareCheck, faChartPie, faUserGroup, faCircleUser, faGear, faMagnifyingGlass, faSliders, faCloudArrowDown, faBox, faBolt, faArrowDown, faCircleQuestion, faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
+import { faCamera,faHouse,faSquarePollVertical, faLayerGroup, faSquareCheck, faChartPie, faUserGroup, faCircleUser, faGear, faMagnifyingGlass, faSliders, faCloudArrowDown, faBox, faBolt, faArrowDown, faCircleQuestion, faTrashCan, faPen, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import {  } from '@fortawesome/free-solid-svg-icons';
 
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { PercentIndicatorComponent } from './shared/percent-indicator/percent-in
 import { ChipComponent } from './shared/chip/chip.component';
 import { UserNamePipe } from './pipes/user-name.pipe';
 import { NamePreviewPipe } from './pipes/name-preview.pipe';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NamePreviewPipe } from './pipes/name-preview.pipe';
     PercentIndicatorComponent,
     ChipComponent,
     UserNamePipe,
-    NamePreviewPipe
+    NamePreviewPipe,
+    PaginationComponent
   ],
   imports: [
     NgChartsModule,
@@ -66,7 +68,9 @@ export class AppModule {
       faBolt,
       faCircleQuestion,
       faTrashCan,
-      faPen
+      faPen,
+      faArrowLeft,
+      faArrowRight
       );
   }
  }

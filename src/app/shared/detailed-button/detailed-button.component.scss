@@ -1,3 +1,5 @@
+@import 'src/mixin.scss';
+
 :host(:hover){
     cursor: pointer;
 }
@@ -6,6 +8,8 @@
     border: 2px solid var(--color-gray-light-2);
     padding: 8px 12px;
     border-radius: 10px;
+    @include flex-centre;
+    gap: 5px;
 }
 
 :host ::ng-deep{

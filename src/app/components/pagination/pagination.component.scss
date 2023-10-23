@@ -1,0 +1,26 @@
+@import 'src/mixin.scss';
+
+.container{
+@include flex-centre;
+justify-content: space-between;
+}
+
+.count{
+    @include table-cell-font;
+    @include table-cell-flex-centre;
+    gap: 20px;
+}
+
+span{
+    padding: 5px;
+    &:hover{
+        cursor: pointer;
+        background-color: var(--color-gray-light-2);
+    }
+}
+
+
+.selected{
+    background-color: var(--color-gray-light-2);
+    border-radius: 5px;
+}
