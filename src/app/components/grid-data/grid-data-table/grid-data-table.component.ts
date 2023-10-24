@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { GridData } from 'src/app/model/grid-data.model';
 import { UserDataCheckBox } from 'src/app/model/user-data-checkbox.model';
@@ -18,10 +18,16 @@ export class GridDataTableComponent implements OnInit {
   selectedUserData!:UsersData;
   deletedUserId$:BehaviorSubject<string>=new BehaviorSubject<string>('');
   deletedUserIds:string[]=[];
+  selectedPage:number=1;
 
   apiService:ApiService=inject(ApiService);
 
   @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
+  @Input() set pageSelected(num:number){
+    this.selectedPage=num;
+    this.deletedUserId$.next('')
+  
+  }
 
 ngOnInit(): void {
   

@@ -23,6 +23,7 @@ import { NamePreviewPipe } from './pipes/name-preview.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
 import { PopUpComponent } from './shared/pop-up/pop-up.component';
+import { PaginationPipe } from './pipes/pagination.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PopUpComponent } from './shared/pop-up/pop-up.component';
     UserNamePipe,
     NamePreviewPipe,
     PaginationComponent,
-    PopUpComponent
+    PopUpComponent,
+    PaginationPipe
   ],
   imports: [
     FormsModule,

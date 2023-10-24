@@ -4,7 +4,7 @@
         <app-chip [text]="chipText"></app-chip>
     </div>
     <div class="content">
-   <app-grid-data-table (usersCount)="onUsersCount($event)"></app-grid-data-table>
+   <app-grid-data-table [pageSelected]="selectedPage" (usersCount)="onUsersCount($event)"></app-grid-data-table>
     </div>
-    <app-pagination (onPageSelected)="selectedPage=$event" class="footer"></app-pagination>
+    <app-pagination [totalCount]="usersCount" (onPageSelected)="selectedPage=$event" class="footer"></app-pagination>
 </app-card>
