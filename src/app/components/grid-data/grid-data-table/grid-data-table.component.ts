@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { GridData } from 'src/app/model/grid-data.model';
+import { UserDataCheckBox } from 'src/app/model/user-data-checkbox.model';
 import { UsersData } from 'src/app/model/user-data.model';
 import { ApiService } from 'src/app/services/api-service/api.service';
 
@@ -12,15 +13,15 @@ import { ApiService } from 'src/app/services/api-service/api.service';
 export class GridDataTableComponent implements OnInit {
   gridData$!: Observable<GridData>;
   allUsersSelected:boolean=false;
-  userSelectionList:boolean[]=[];
+  userSelectionList:UserDataCheckBox[]=[];
   openPopUpBox:boolean=false;
   selectedUserData!:UsersData;
   deletedUserId$:BehaviorSubject<string>=new BehaviorSubject<string>('');
   deletedUserIds:string[]=[];
 
-  @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
+  apiService:ApiService=inject(ApiService);
 
-apiService:ApiService=inject(ApiService);
+  @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
 
 ngOnInit(): void {
   
@@ -38,16 +39,18 @@ return this.apiService.getGridData().pipe(map((data:GridData)=>{
 }))
 }),tap((value:GridData)=>{
   this.usersCount.emit(value.grid_data.length);
-  for (let index = 0; index < value.grid_data.length; index++) {
-    this.userSelectionList.push(false);
-  }
+  this.userSelectionList=[];
+  this.allUsersSelected=false;
+  value.grid_data.forEach((user:UsersData)=>{
+    this.userSelectionList.push({id:user.id,checked:false});
+  })
 }))
 }
 
 onAllCheckBoxClick(value:boolean):void{
   const selected=value;
-  this.userSelectionList.forEach((selection:boolean,index:number)=>{
-    this.userSelectionList[index]=selected
+  this.userSelectionList.forEach((selection:UserDataCheckBox,index:number)=>{
+    this.userSelectionList[index].checked=selected
   });  
 }
 
@@ -61,7 +64,8 @@ openConfirmBox(userData:UsersData):void{
   this.selectedUserData=userData;
   if(confirm(`${userData.name.first_name} ${userData.name.last_name} will be deleted`)){
     this.deletedUserIds.push(userData.id);
-    this.deletedUserId$.next(this.selectedUserData.id)
+    this.deletedUserId$.next(this.selectedUserData.id);
+    
   }
 }
 }

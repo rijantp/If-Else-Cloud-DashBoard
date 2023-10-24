@@ -29,7 +29,7 @@
     <tr class="user-row" *ngFor="let userData of gridData.grid_data;index as i">
         <td>
             <div class="user">
-                <input type="checkbox" [(ngModel)]="userSelectionList[i]">
+                <input type="checkbox" [(ngModel)]="userSelectionList[i].checked">
                 <div class="user-image">
                     {{userData.name | namePreview}}
                 </div>
