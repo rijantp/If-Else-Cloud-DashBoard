@@ -21,6 +21,7 @@ import { ChipComponent } from './shared/chip/chip.component';
 import { UserNamePipe } from './pipes/user-name.pipe';
 import { NamePreviewPipe } from './pipes/name-preview.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     PaginationComponent
   ],
   imports: [
+    FormsModule,
     NgChartsModule,
     BrowserModule,
     FontAwesomeModule,

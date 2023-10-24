@@ -120,3 +120,11 @@ input[type="checkbox"]{
 .m-l-20{
   margin-left: 20px;
 }
+
+.edit-icon{
+  cursor: pointer;
+}
+
+.user-row:hover{
+  background-color: var(--color-gray-light-2);
+}

@@ -10,6 +10,8 @@ import { ApiService } from 'src/app/services/api-service/api.service';
 })
 export class GridDataTableComponent implements OnInit {
   gridData$!: Observable<GridData>;
+  allUsersSelected:boolean=false;
+  userSelectionList:boolean[]=[];
 
   @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
 
@@ -18,8 +20,17 @@ apiService:ApiService=inject(ApiService);
 ngOnInit(): void {
     this.gridData$=this.apiService.getGridData().pipe(tap((data:GridData)=>{
       this.usersCount.emit(data.grid_data.length);
-      console.log(data.grid_data.length);
-      
+      for (let index = 0; index < data.grid_data.length; index++) {
+        this.userSelectionList.push(false);
+        
+      }
     }))
+}
+
+onAllCheckBoxClick(value:boolean):void{
+  const selected=value;
+  this.userSelectionList.forEach((selection:boolean,index:number)=>{
+    this.userSelectionList[index]=selected
+  });  
 }
 }

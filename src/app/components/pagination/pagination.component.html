@@ -1,12 +1,12 @@
 <div class="container">
-    <app-detailed-button>
+    <app-detailed-button (click)="onPrevious()">
         <fa-icon icon="arrow-left"></fa-icon>
         Previous
     </app-detailed-button>
     <div class="count" >
 <span (click)="onPageClick(pageNum)" *ngFor="let pageNum of pageCountList" [class.selected] = "selectedPage === pageNum">{{pageNum}}</span>
     </div>
-    <app-detailed-button>
+    <app-detailed-button (click)="onNext()">
         next
         <fa-icon icon="arrow-right"></fa-icon>
     </app-detailed-button>

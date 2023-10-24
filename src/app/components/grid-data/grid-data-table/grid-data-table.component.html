@@ -2,7 +2,7 @@
     <tr class="table-header-row">
       <td>
         <div class="table-cell-align">
-<input type="checkbox">
+<input type="checkbox" [(ngModel)]="allUsersSelected" (ngModelChange)="onAllCheckBoxClick($event)">
 <span class="header-name-title ">{{gridData.grid_columns[0].column_name}}</span>
 </div>
       </td>
@@ -26,10 +26,10 @@
       </td>
       <td></td>
     </tr>
-    <tr *ngFor="let userData of gridData.grid_data">
+    <tr class="user-row" *ngFor="let userData of gridData.grid_data;index as i">
         <td>
             <div class="user">
-                <input type="checkbox">
+                <input type="checkbox" [(ngModel)]="userSelectionList[i]">
                 <div class="user-image">
                     {{userData.name | namePreview}}
                 </div>
@@ -54,8 +54,8 @@
         </td>
         <td>
             <div class="edit-container">
-                <fa-icon icon="trash-can"></fa-icon>
-                <fa-icon icon="pen"></fa-icon>
+                <fa-icon class="edit-icon" icon="trash-can"></fa-icon>
+                <fa-icon class="edit-icon" icon="pen"></fa-icon>
             </div>
         </td>
       </tr>
