@@ -24,16 +24,7 @@ table, td, th {
     align-items: center;
 
     &-image{
-        font-size: var(--font-size-medium);
-        padding: 2px;
-        height: 2rem;
-        width: 2rem;
-        border-radius: 50%;
-        background-color: var(--color-gray-light-2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--color-gray-light-1);
+        @include image-preview-alt;
     }
 
     &-name{

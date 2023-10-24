@@ -54,12 +54,12 @@
         </td>
         <td>
             <div class="edit-container">
-                <fa-icon class="edit-icon" (click)="onPopUpOpen(userData)" icon="trash-can"></fa-icon>
-                <fa-icon class="edit-icon" icon="pen"></fa-icon>
+                <fa-icon class="edit-icon" (click)="openConfirmBox(userData)" icon="trash-can"></fa-icon>
+                <fa-icon class="edit-icon" (click)="onPopUpOpen(userData)" icon="pen"></fa-icon>
             </div>
         </td>
       </tr>
       
   
   </table>
-  <app-pop-up *ngIf="openDeleteBox" (action)="onPopUpClose($event)" [text]="selectedUserData.name"></app-pop-up>
+  <app-pop-up *ngIf="openPopUpBox" (action)="openPopUpBox=false" [text]="selectedUserData.name"></app-pop-up>

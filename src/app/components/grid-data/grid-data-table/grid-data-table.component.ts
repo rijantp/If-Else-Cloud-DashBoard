@@ -13,7 +13,7 @@ export class GridDataTableComponent implements OnInit {
   gridData$!: Observable<GridData>;
   allUsersSelected:boolean=false;
   userSelectionList:boolean[]=[];
-  openDeleteBox:boolean=false;
+  openPopUpBox:boolean=false;
   selectedUserData!:UsersData;
   deletedUserId$:BehaviorSubject<string>=new BehaviorSubject<string>('');
 
@@ -48,11 +48,14 @@ onAllCheckBoxClick(value:boolean):void{
 
 onPopUpOpen(userData:UsersData):void{
   this.selectedUserData=userData;
-  this.openDeleteBox=true;
+  this.openPopUpBox=true;
 }
 
-onPopUpClose(isDeleted:boolean):void{
-  this.openDeleteBox=false;
-  if(isDeleted)this.deletedUserId$.next(this.selectedUserData.id)
+
+openConfirmBox(userData:UsersData):void{
+  this.selectedUserData=userData;
+  if(confirm(`${userData.name.first_name} ${userData.name.last_name} will be deleted`)){
+    this.deletedUserId$.next(this.selectedUserData.id)
+  }
 }
 }

@@ -4,7 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,.75);
+    background: var(--color-back-drop);
     z-index: 50;
 }
 
@@ -16,16 +16,11 @@
     padding: 16px;
     background: white;
     z-index: 100;
-    box-shadow: 0 2px 8px rgba(0,0,0,.26);
-}
-
-.actions{
-display: flex;
-justify-content: flex-end;
-gap: 16px;
+    box-shadow: 0 2px 8px var(--color-gray-dark);
 }
 
 p{
     font-size: var(--font-size-medium);
-    color:--color-gray-dark
+    color:var(--color-gray-dark);
+    text-align: center;
 }
