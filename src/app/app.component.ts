@@ -1,5 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
-import { ApiService } from './services/api-service/api.service';
+import { Component } from "@angular/core";
 
 @Component({
   selector: 'app-root',
@@ -7,10 +6,5 @@ import { ApiService } from './services/api-service/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = "asd";
-  ser=inject(ApiService);
-
- public constructor() {
-    this.ser.getGridData().subscribe(val=>console.log(val))
-  }
+  
 }
