@@ -24,15 +24,8 @@ apiService:ApiService=inject(ApiService);
 
 ngOnInit(): void {
   
-  const apiData$:Observable<GridData>=this.apiService.getGridData().pipe(tap((data:GridData)=>{
-    this.usersCount.emit(data.grid_data.length);
-    for (let index = 0; index < data.grid_data.length; index++) {
-      this.userSelectionList.push(false);
-      
-    }
-  }));
 this.gridData$=this.deletedUserId$.pipe(switchMap((userId:string)=>{
-return apiData$.pipe(map((data:GridData)=>{
+return this.apiService.getGridData().pipe(map((data:GridData)=>{
   return {...data,grid_data:data.grid_data.filter((userData:UsersData)=>{
     let isNotDeleted=true;
     this.deletedUserIds.forEach((id:string)=>{
@@ -40,10 +33,14 @@ return apiData$.pipe(map((data:GridData)=>{
         isNotDeleted=false;
       }
     })
-
     return isNotDeleted
   })}
 }))
+}),tap((value:GridData)=>{
+  this.usersCount.emit(value.grid_data.length);
+  for (let index = 0; index < value.grid_data.length; index++) {
+    this.userSelectionList.push(false);
+  }
 }))
 }
 
