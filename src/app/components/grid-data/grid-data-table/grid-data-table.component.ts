@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, switchMap, tap } from 'rxjs';
 import { GridData } from 'src/app/model/grid-data.model';
 import { UsersData } from 'src/app/model/user-data.model';
 import { ApiService } from 'src/app/services/api-service/api.service';
@@ -15,19 +15,28 @@ export class GridDataTableComponent implements OnInit {
   userSelectionList:boolean[]=[];
   openDeleteBox:boolean=false;
   selectedUserData!:UsersData;
+  deletedUserId$:BehaviorSubject<string>=new BehaviorSubject<string>('');
 
   @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
 
 apiService:ApiService=inject(ApiService);
 
 ngOnInit(): void {
-    this.gridData$=this.apiService.getGridData().pipe(tap((data:GridData)=>{
-      this.usersCount.emit(data.grid_data.length);
-      for (let index = 0; index < data.grid_data.length; index++) {
-        this.userSelectionList.push(false);
-        
-      }
-    }))
+  
+  const apiData$:Observable<GridData>=this.apiService.getGridData().pipe(tap((data:GridData)=>{
+    this.usersCount.emit(data.grid_data.length);
+    for (let index = 0; index < data.grid_data.length; index++) {
+      this.userSelectionList.push(false);
+      
+    }
+  }));
+this.gridData$=this.deletedUserId$.pipe(switchMap((userId:string)=>{
+return apiData$.pipe(map((data:GridData)=>{
+  return {...data,grid_data:data.grid_data.filter((userData:UsersData)=>{
+    return userData.id!==userId;
+  })}
+}))
+}))
 }
 
 onAllCheckBoxClick(value:boolean):void{
@@ -39,12 +48,11 @@ onAllCheckBoxClick(value:boolean):void{
 
 onPopUpOpen(userData:UsersData):void{
   this.selectedUserData=userData;
-  console.log(userData);
-  
   this.openDeleteBox=true;
 }
 
 onPopUpClose(isDeleted:boolean):void{
   this.openDeleteBox=false;
+  if(isDeleted)this.deletedUserId$.next(this.selectedUserData.id)
 }
 }
