@@ -30,5 +30,5 @@ align-items: center;
 
 
 canvas{
-    width: 62vw;
+    width: clamp(50vw, 68vw, 70vw)
 }

@@ -17,5 +17,5 @@
 }
 
 canvas{
-   width: 23vw ;
+    width: clamp(15vw, 23vw, 35vw)
 }
