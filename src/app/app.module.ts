@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import{ HttpClientModule} from '@angular/common/http';
 import { FontAwesomeModule,FaIconLibrary  } from '@fortawesome/angular-fontawesome';
-import { faCamera,faHouse,faSquarePollVertical, faLayerGroup, faSquareCheck, faChartPie, faUserGroup, faCircleUser, faGear, faMagnifyingGlass, faSliders, faCloudArrowDown, faBox, faBolt, faArrowDown, faCircleQuestion, faTrashCan, faPen, faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faCamera,faHouse,faSquarePollVertical, faLayerGroup, faSquareCheck, faChartPie, faUserGroup, faCircleUser, faGear, faMagnifyingGlass, faSliders, faCloudArrowDown, faBox, faBolt, faArrowDown, faCircleQuestion, faTrashCan, faPen, faArrowLeft, faArrowRight, faXmark } from '@fortawesome/free-solid-svg-icons';
 import {  } from '@fortawesome/free-solid-svg-icons';
 
 import { AppComponent } from './app.component';
@@ -22,6 +22,7 @@ import { UserNamePipe } from './pipes/user-name.pipe';
 import { NamePreviewPipe } from './pipes/name-preview.pipe';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { FormsModule } from '@angular/forms';
+import { PopUpComponent } from './shared/pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { FormsModule } from '@angular/forms';
     ChipComponent,
     UserNamePipe,
     NamePreviewPipe,
-    PaginationComponent
+    PaginationComponent,
+    PopUpComponent
   ],
   imports: [
     FormsModule,
@@ -54,6 +56,7 @@ import { FormsModule } from '@angular/forms';
 export class AppModule {
   public constructor(library: FaIconLibrary){
     library.addIcons(faCamera,
+      faXmark,
       faHouse,
       faArrowDown,
       faSquarePollVertical,

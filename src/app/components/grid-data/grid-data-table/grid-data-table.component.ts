@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { GridData } from 'src/app/model/grid-data.model';
+import { UsersData } from 'src/app/model/user-data.model';
 import { ApiService } from 'src/app/services/api-service/api.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class GridDataTableComponent implements OnInit {
   gridData$!: Observable<GridData>;
   allUsersSelected:boolean=false;
   userSelectionList:boolean[]=[];
+  openDeleteBox:boolean=false;
+  selectedUserData!:UsersData;
 
   @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
 
@@ -32,5 +35,16 @@ onAllCheckBoxClick(value:boolean):void{
   this.userSelectionList.forEach((selection:boolean,index:number)=>{
     this.userSelectionList[index]=selected
   });  
+}
+
+onPopUpOpen(userData:UsersData):void{
+  this.selectedUserData=userData;
+  console.log(userData);
+  
+  this.openDeleteBox=true;
+}
+
+onPopUpClose(isDeleted:boolean):void{
+  this.openDeleteBox=false;
 }
 }

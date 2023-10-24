@@ -1,0 +1,16 @@
+<div class="back-drop" (click)="onActionClick(false)"></div>
+<div class="content">
+    <p>{{text | userName}}</p>
+    <div class="actions">
+
+        <app-detailed-button (click)="onActionClick(false)">
+            <fa-icon class="edit-icon"  icon="xmark"></fa-icon>
+            <span>cancel</span>
+        </app-detailed-button>
+        <app-detailed-button (click)="onActionClick(true)">
+            <fa-icon class="edit-icon"  icon="trash-can"></fa-icon>
+            <span>delete</span>
+        </app-detailed-button>
+      
+    </div> 
+</div>
