@@ -14,7 +14,6 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { DoughnutChartComponent } from './components/doughnut-chart/doughnut-chart.component';
 import { CardComponent } from './shared/card/card.component';
 import { GridDataComponent } from './components/grid-data/grid-data.component';
-import { UserDataComponent } from './components/grid-data/user-data/user-data.component';
 import { GridDataTableComponent } from './components/grid-data/grid-data-table/grid-data-table.component';
 import { PercentIndicatorComponent } from './shared/percent-indicator/percent-indicator.component';
 import { ChipComponent } from './shared/chip/chip.component';
@@ -35,7 +34,6 @@ import { PaginationPipe } from './pipes/pagination.pipe';
     DoughnutChartComponent,
     CardComponent,
     GridDataComponent,
-    UserDataComponent,
     GridDataTableComponent,
     PercentIndicatorComponent,
     ChipComponent,
