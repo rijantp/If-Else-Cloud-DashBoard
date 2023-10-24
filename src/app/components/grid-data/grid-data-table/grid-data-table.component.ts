@@ -16,6 +16,7 @@ export class GridDataTableComponent implements OnInit {
   openPopUpBox:boolean=false;
   selectedUserData!:UsersData;
   deletedUserId$:BehaviorSubject<string>=new BehaviorSubject<string>('');
+  deletedUserIds:string[]=[];
 
   @Output()usersCount:EventEmitter<number>=new EventEmitter<number>;
 
@@ -33,7 +34,14 @@ ngOnInit(): void {
 this.gridData$=this.deletedUserId$.pipe(switchMap((userId:string)=>{
 return apiData$.pipe(map((data:GridData)=>{
   return {...data,grid_data:data.grid_data.filter((userData:UsersData)=>{
-    return userData.id!==userId;
+    let isNotDeleted=true;
+    this.deletedUserIds.forEach((id:string)=>{
+      if(id===userData.id){
+        isNotDeleted=false;
+      }
+    })
+
+    return isNotDeleted
   })}
 }))
 }))
@@ -55,6 +63,7 @@ onPopUpOpen(userData:UsersData):void{
 openConfirmBox(userData:UsersData):void{
   this.selectedUserData=userData;
   if(confirm(`${userData.name.first_name} ${userData.name.last_name} will be deleted`)){
+    this.deletedUserIds.push(userData.id);
     this.deletedUserId$.next(this.selectedUserData.id)
   }
 }
